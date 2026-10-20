@@ -1,0 +1,241 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ✅ SMOOTH SCROLL — para dahan-dahan kapag nag-click sa nav */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(to right, #ffd8b1, #ffe4d4);
+    color: #2b006e;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #7b1fa2, #9c27b0);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    flex-wrap: wrap;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+/* === PROFILE IMAGE / LOGO — SIZED CORRECTLY === */
+.avatar-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+.name-title h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
+.name-title p {
+    font-size: 13px;
+    opacity: 0.9;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 15px;
+    /* ✅ SMOOTH TRANSITION sa nav links */
+    transition: opacity 0.3s ease;
+}
+nav a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Sections */
+.section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 30px;
+    text-align: center;
+}
+.section h2 {
+    color: #1a237e;
+    font-size: 22px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.about-section p {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+.skills-section ul {
+    list-style-type: disc;
+    display: inline-block;
+    text-align: left;
+    margin-top: 10px;
+}
+.skills-section li {
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+/* Projects */
+.divider {
+    border: none;
+    height: 2px;
+    background: #9c27b0;
+    width: 60px;
+    margin: -10px auto 25px;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+    /* ✅ Fixed transition syntax */
+    transition: all 0.4s ease;
+}
+
+/* ✅ SMOOTH CARD ANIMATION — dito ilalagay yung smooth effect */
+.project-card {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    
+    /* ✅ Smooth hover & scroll transition */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    
+    /* ✅ Fade-in from below kapag nag-scroll */
+    opacity: 0;
+    transform: translateY(25px);
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+/* ✅ Delay per card para sunod-sunod lumabas */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* ✅ Hover effect — aangat yung card kapag tinapat mouse */
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(156, 39, 176, 0.2);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* ✅ Fade-in animation keyframe */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background: #ddd;
+    /* ✅ Smooth image zoom */
+    transition: transform 0.3s ease;
+}
+.project-card:hover img {
+    transform: scale(1.03);
+}
+
+.project-card h3 {
+    color: #d81b60;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+.tech-stack {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 450px;
+    margin: 0 auto;
+    text-align: left;
+}
+.contact-form label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin: 12px 0 4px;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    /* ✅ Smooth focus effect */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #9c27b0;
+    box-shadow: 0 0 0 2px rgba(156, 39, 176, 0.2);
+}
+.contact-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+.send-btn {
+    background: #ba68c8;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+    /* ✅ Smooth button hover */
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.send-btn:hover {
+    background: #9c27b0;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, #7b1fa2, #9c27b0);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+.back-to-top {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 5px;
+    display: inline-block;
+    /* ✅ Smooth transition */
+    transition: opacity 0.3s ease;
+}
+.back-to-top:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
